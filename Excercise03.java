@@ -76,4 +76,41 @@ class Car {
  
  }
 
+
+
+
+ // Aufgabe 3.2 Lösung 
+
+  class Bird {
+     protected double altitude = 0.0;
+ 
+     // Increases flight altitude by meters. Expects meters > 0.
+     public void fly(double meters) {
+         if (meters > 0) {
+             altitude += meters;
+         }
+     }
+ 
+     public double getAltitude() {
+         return altitude;
+     }
+ }
+ 
+ class Pigeon extends Bird {}
+ 
+ class Penguin extends Bird {
+ 
+     @Override
+     public void fly(double meters) {
+         throw new UnsupportedOperationException("Penguins cannot fly!");
+     }
+ }
+
+
+ /*  a) Bei Bird und Pigeon bleibt die Invariante erhalten, da fly() die Höhe erhöht, 
+ während Penguin sie verletzt, 
+ da fly() eine Exception wirft und somit nicht wie ein Bird verwendbar ist. */
+
+
+ // Von a)  gilt das Liskov’sche Ersetzungsprinzip nur für Bird und Pigeon 
  
