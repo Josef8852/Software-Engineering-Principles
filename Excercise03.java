@@ -33,3 +33,20 @@ class Car {
 
 
 
+
+// Aufgabe 3.2 Lösung 
+
+  class UserManager {
+      public void createUser ( String name , String email ) { }
+      public void deleteUser ( int userId ) { }
+  }
+
+ class UserActivityLogger {
+     public void logUserActivity ( int userId , String activity ) {}
+     public void exportLogs ( String path ) {  }
+}
+
+
+
+
+ 
