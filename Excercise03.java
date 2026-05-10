@@ -2,6 +2,8 @@
 
 import java.util.List;
 import java.util.ArrayList;
+import java.time.Clock;
+import java.time.LocalDate;
 
 public class Excercise03 {
     public static void main(String[] args) {}
@@ -113,4 +115,49 @@ class Car {
 
 
  // Von a)  gilt das Liskov’sche Ersetzungsprinzip nur für Bird und Pigeon 
+
+
+
+ // Aufgabe 3.3 
+
+  class Auto {
+  private final String model ;
+  private final PerformanceCalculator performance ;
+  private final Clock clock ;
+  private double price ;
+  private boolean isSold ;
  
+  public Auto( String model , double price ,
+  PerformanceCalculator performance , Clock clock ) {
+  this . model = model ;
+  this . price = price ;
+  this . performance = performance ;
+  this . clock = clock ;
+  this . isSold = false ;
+  }
+ 
+  public double calculatePerformance ( double basePerformance ) {
+  return performance . calculate ( basePerformance ) ;
+  }
+ 
+  public void applyDepreciation ( double rate ) {
+  LocalDate today = LocalDate .now( clock ) ;
+  price = Math .max (0 , price - price * rate ) ;
+  }
+ 
+  public String getModel () { return model ; }
+  public double getPrice () { return price ; }
+  public boolean isSold () { return isSold ; }
+  public void sellCar () { this . isSold = true ; }
+  }
+ 
+  interface PerformanceCalculator {
+  double calculate ( double basePerformance ) ;
+  }
+
+  // Lösung 
+  // model -> Komponenten weil es ist unverändlich z.B BMW . 
+  // PerformanceCalculator -> Strategie , die Berechnung ändert sich durch Logik (Formel)
+  // clock -> Hilfsfelder  externe Zeitquelle . 
+  // price -> Zustand , echter Wert 
+  // isSolid -> Flag , boolscher Wert oder Enum  
