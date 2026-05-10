@@ -1,5 +1,8 @@
 // Blatt 03 ST
 
+import java.util.List;
+import java.util.ArrayList;
+
 public class Excercise03 {
     public static void main(String[] args) {}
 }
@@ -48,5 +51,29 @@ class Car {
 
 
 
+// Aufgabe 3.3 Lösung 
+
+  class Collection {
+ private List <String > items = new ArrayList <>() ;
+
+ public void addItem(String item ) { 
+     items.add( item ) ;
+ }
+
+ 
+ public String retrieveElement (int index ) {
+ return items.get( index ) ;
+ }
+
+ 
+ public void insertAt(int index , String item) {
+ items.set( index , item ) ;
+ }
+
+ public void dropItem( String item ) {
+     items.remove(item) ; 
+ }
+ 
+ }
 
  
